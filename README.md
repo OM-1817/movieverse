@@ -131,4 +131,8 @@ src/
 
 ---
 
+## Author
+
+Om Vaghani
+
 > All movie data is static and for demonstration purposes only.
