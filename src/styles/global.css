@@ -1,0 +1,227 @@
+/* src/styles/global.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+/* ─── CSS Variables ─────────────────────────────────────────────────────────── */
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #111118;
+  --bg-card: #16161e;
+  --bg-elevated: #1e1e2a;
+  --bg-glass: rgba(22, 22, 30, 0.8);
+
+  --text-primary: #f0f0f8;
+  --text-secondary: #9999bb;
+  --text-muted: #55556a;
+  --text-accent: #e8c44a;
+
+  --accent-gold: #e8c44a;
+  --accent-blue: #4a9eff;
+  --accent-purple: #9b59b6;
+  --accent-red: #e74c3c;
+  --accent-green: #2ecc71;
+
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-glow: rgba(232, 196, 74, 0.3);
+
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 30px rgba(232, 196, 74, 0.15);
+  --shadow-hover: 0 8px 40px rgba(0, 0, 0, 0.7);
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 32px;
+
+  --font-display: 'Bebas Neue', 'Cinzel', sans-serif;
+  --font-heading: 'Cinzel', serif;
+  --font-body: 'Inter', sans-serif;
+
+  --nav-height: 72px;
+  --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="light"] {
+  --bg-primary: #f4f4f8;
+  --bg-secondary: #ebebf2;
+  --bg-card: #ffffff;
+  --bg-elevated: #f0f0f8;
+  --bg-glass: rgba(255, 255, 255, 0.85);
+
+  --text-primary: #111118;
+  --text-secondary: #44446a;
+  --text-muted: #88889a;
+
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-glow: rgba(180, 140, 20, 0.3);
+
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.1);
+  --shadow-glow: 0 0 30px rgba(200, 160, 30, 0.12);
+  --shadow-hover: 0 8px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* ─── Reset & Base ──────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: none;
+  overflow-x: hidden;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-secondary); }
+::-webkit-scrollbar-thumb { background: var(--accent-gold); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #f0d060; }
+
+/* ─── Typography ────────────────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+}
+
+.display-title {
+  font-family: var(--font-display);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: none;
+}
+
+/* ─── Layout ────────────────────────────────────────────────────────────────── */
+.page-container {
+  min-height: 100vh;
+  padding-top: var(--nav-height);
+}
+
+.content-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ─── Cards ─────────────────────────────────────────────────────────────────── */
+.glass-card {
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+/* ─── Section Headers ───────────────────────────────────────────────────────── */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.section-header h2 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+
+.section-divider {
+  height: 2px;
+  flex: 1;
+  background: linear-gradient(to right, var(--accent-gold), transparent);
+  border-radius: 1px;
+}
+
+/* ─── Badges ────────────────────────────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ─── Utility ───────────────────────────────────────────────────────────────── */
+.text-gold { color: var(--accent-gold); }
+.text-muted { color: var(--text-muted); }
+.text-secondary { color: var(--text-secondary); }
+
+.no-select { user-select: none; }
+
+/* ─── Glow Effects ──────────────────────────────────────────────────────────── */
+.glow-gold { box-shadow: 0 0 20px rgba(232, 196, 74, 0.4); }
+.glow-blue { box-shadow: 0 0 20px rgba(74, 158, 255, 0.4); }
+
+/* ─── Loading ───────────────────────────────────────────────────────────────── */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border-subtle);
+  border-top-color: var(--accent-gold);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ─── Empty State ───────────────────────────────────────────────────────────── */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  text-align: center;
+  gap: 16px;
+}
+
+.empty-state .icon { font-size: 4rem; opacity: 0.4; }
+.empty-state h3 { font-size: 1.4rem; color: var(--text-secondary); }
+.empty-state p { color: var(--text-muted); max-width: 380px; }
+
+/* ─── Movie Grid ────────────────────────────────────────────────────────────── */
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .movies-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+  .content-wrapper { padding: 0 16px; }
+}
+
+/* ─── Overlay / Modal ───────────────────────────────────────────────────────── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
